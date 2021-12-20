@@ -1,18 +1,4 @@
-.login__wrapper {
-    border: 1px solid black;
-    height: 70px;
-    width: 150px;
-    border-radius: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    button {
-        background: #3a7999;
-        border-radius: 10%;
-        width: 80%;
-        height: 80%;
-    }
-    button:hover {
-        color: white;
-    }
+.login-button {
+  position: relative;
+  transform: translateY(-50px);
 }

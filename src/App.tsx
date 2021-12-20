@@ -1,11 +1,15 @@
 import React from 'react';
 
+import Header from './components/Header';
+import Main from './components/Main/Main';
+
 import "./app.style.scss";
 
 function App() {
   return (
     <div className="App">
-      <div className="check"></div>
+      <Header />
+      <Main />
     </div>
   );
 }

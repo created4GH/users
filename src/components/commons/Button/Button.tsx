@@ -2,10 +2,7 @@ import "./style.scss";
 
 interface Props {
   className?: string;
-  onClick?: () => {
-    type: string;
-    payload: boolean;
-  };
+  onClick?: () => void;
   innerText?: string;
 }
 

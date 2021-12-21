@@ -1,9 +1,10 @@
 .nav-menu {
-  position: sticky;
+  position: relative;
   top: 100%;
-  .nav-buttons-container{
-      position: relative;
-      left: 76vw;
-      max-width: 330px;
+  .nav-buttons-container {
+    position: relative;
+    display: flex;
+    left: 75vw;
+    min-width: 25vw;
   }
 }

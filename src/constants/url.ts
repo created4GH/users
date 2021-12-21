@@ -1,1 +1,1 @@
-export const url = "https://randomuser.me/api/?results=30";
+export const url = (pageNumber: number) => `https://randomuser.me/api/?page=${pageNumber}&results=10&seed=abc`;

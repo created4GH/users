@@ -3,21 +3,24 @@ import axios from "axios";
 
 import { SET_USERS, FETCH_USERS, IS_FETCHING } from "../types";
 import { url } from "../../constants/url";
-import { UsersType } from "../../interfaces";
+import { UserType } from "../../interfaces";
 import { convertDate } from "../../helpers";
 
-const fetchData = async () => {
-    const response = axios.get(url);
+const fetchData = async (pageNumber: number) => {
+    const response = axios.get(url(pageNumber));
     const data = (await response).data;
     const results = data.results;
     return results;
+
 }
 
-function* setData() {
+function* setData({ pageNumber }: { type: typeof FETCH_USERS, pageNumber: number }) {
     try {
         yield put({ type: IS_FETCHING, payload: true });
-        const response: UsersType[] = yield call(fetchData);
+        const response: UserType[] = yield call(fetchData, pageNumber);
         const formattedData = response.map(item => {
+            const genderColor = item.gender === "male" ? "blue" : "pink";
+            const className = "user-item " + genderColor;
             return {
                 ...item,
                 dob: {
@@ -27,7 +30,8 @@ function* setData() {
                 registered: {
                     ...item.registered,
                     date: convertDate(item.registered.date)
-                }
+                },
+                className
             }
         });
         yield put({ type: SET_USERS, payload: formattedData });

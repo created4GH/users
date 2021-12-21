@@ -26,8 +26,7 @@ const Users = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchUsers(pageNumber));
-    document.addEventListener("scroll", scroll);
+        document.addEventListener("scroll", scroll);
     return () => {
       document.removeEventListener("scroll", scroll);
     }

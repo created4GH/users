@@ -4,7 +4,6 @@ import logo from "../../assets/img/svg/header.svg";
 import "./style.scss";
 
 const Header = () => {
-  console.log(logo)
   return (
     <header className="header">
       <div className="header-logo-wrapper">

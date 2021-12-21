@@ -1,11 +1,16 @@
-import NavMenu from "../NavMenu/NavMenu";
+import NavMenu from "../NavMenu";
 
+import logo from "../../assets/img/svg/header.svg";
 import "./style.scss";
 
 const Header = () => {
+  console.log(logo)
   return (
     <header className="header">
-      <h1 className="header-title">HEADER</h1>
+      <div className="header-logo-wrapper">
+        <img src={logo} alt="header logo" />
+        <h1 className="header-title">Connections</h1>
+      </div>
       <NavMenu />
     </header>
   );

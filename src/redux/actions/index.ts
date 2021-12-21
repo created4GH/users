@@ -1,6 +1,6 @@
-import { IS_AUTHORIZED, SET_USERS } from "../types"
+import { IS_AUTHORIZED, SET_USERS, FETCH_USERS, SET_CHOSEN_USER } from "../types"
 
-import { UsersType } from "../../interfaces"
+import { UserType } from "../../interfaces"
 
 export const setIsAuthorized = (payload: boolean) => {
     return {
@@ -9,8 +9,16 @@ export const setIsAuthorized = (payload: boolean) => {
     }
 }
 
-export const setUsers = (payload?: UsersType) => {
+export const setChosenUser = (chosenUser: UserType) => {
     return {
-        type: SET_USERS
+        type: SET_CHOSEN_USER,
+        chosenUser
+    }
+}
+
+export const fetchUsers = (pageNumber: number) => {
+    return {
+        type: FETCH_USERS,
+        pageNumber
     }
 }

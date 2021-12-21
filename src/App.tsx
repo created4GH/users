@@ -1,15 +1,19 @@
 import React from 'react';
 
-import Header from './components/Header';
-import Main from './components/Main/Main';
+import Pages from './components/Pages';
 
 import "./app.style.scss";
+import Header from './components/Header';
+import { useSelector } from 'react-redux';
+import { IsAuthorizedSelector } from './redux/selectors';
 
 function App() {
+  const isAuthorized = useSelector(IsAuthorizedSelector);
+
   return (
     <div className="App">
-      <Header />
-      <Main />
+      {isAuthorized && <Header />}
+      <Pages />
     </div>
   );
 }

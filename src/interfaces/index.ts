@@ -1,4 +1,4 @@
-export interface UsersType {
+export interface UserType {
     name: { title: string, first: string, last: string };
     email: string;
     phone: string;
@@ -9,6 +9,7 @@ export interface UsersType {
         value: string;
     };
     nat: string;
+    className: string;
     dob: {
         date: string;
         age: number;

@@ -1,20 +1,15 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import Languages from "../Languages";
 
-import Login from "../Login";
-import UserInfo from "../UserInfo";
-import Users from "../Users";
+import Routing from "../Routing";
 
 import "./style.scss";
 
-const Pages = () => {
+const Pages: React.FC = () => {
+
     return (
         <div className="pages-container">
-            <Routes>
-                <Route path="*" element={<Navigate to="/login" />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/users" element={<Users />} />
-                <Route path="/userinfo" element={<UserInfo />} />
-            </Routes>
+            <Languages />
+            <Routing />
         </div>
     );
 };

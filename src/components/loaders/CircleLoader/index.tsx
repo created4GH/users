@@ -1,6 +1,6 @@
 import "./style.scss";
 
-const Loader = () => {
+const CircleLoader = () => {
     return (
         <div className="lds-default">
             <div></div><div></div><div></div><div></div>
@@ -10,4 +10,4 @@ const Loader = () => {
     )
 }
 
-export default Loader;
+export default CircleLoader;

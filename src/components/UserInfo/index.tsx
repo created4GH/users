@@ -1,20 +1,27 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { UserType } from "../../interfaces";
-import { chosenUserSelector, stateSelector } from "../../redux/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { resetChosenUser } from "../../redux/actions";
+import { chosenUserSelector } from "../../redux/selectors";
 import AdditionalUserInfo from "../AdditionalUserInfo";
+import Button from "../commons/Button/Button";
 import UsersSelect from "../UsersSelect";
 
-const UserInfo = () => {
-    const { chosenUser, isAuthorized } = useSelector(stateSelector);
+import "./style.scss";
 
-    if (!isAuthorized) {
-        return <Navigate to="/login" />
+const UserInfo = () => {
+    const dispatch = useDispatch();
+    const chosenUser = useSelector(chosenUserSelector);
+
+    const resetSelectedUser = () => {
+        dispatch(resetChosenUser());
     }
 
     return (
         chosenUser
-            ? <AdditionalUserInfo chosenUser={chosenUser} />
+            ? <>
+                <AdditionalUserInfo chosenUser={chosenUser} />
+                <UsersSelect />
+                <Button innerText="Reset" className="reset-button" onClick={resetSelectedUser} />
+            </>
             : <UsersSelect />
     )
 }

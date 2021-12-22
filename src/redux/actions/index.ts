@@ -3,9 +3,11 @@ import {
   SET_CURRENT_PAGE_NUMBER,
   FETCH_USERS,
   SET_CHOSEN_USER,
+  RESET_CHOSEN_USER,
+  SET_LOCAL_LANGUAGE,
 } from "../types";
 
-import { UserType } from "../../interfaces";
+import { Language, UserType } from "../../interfaces";
 
 export const setIsAuthorized = (payload: boolean) => {
   return {
@@ -22,10 +24,10 @@ export const setChosenUser = (chosenUser: UserType) => {
 };
 
 export const fetchUsers = (currentPage: number) => {
-    return {
-      type: FETCH_USERS,
-      currentPage,
-    };
+  return {
+    type: FETCH_USERS,
+    currentPage,
+  };
 };
 
 export const setPageNumber = () => {
@@ -33,3 +35,16 @@ export const setPageNumber = () => {
     type: SET_CURRENT_PAGE_NUMBER,
   };
 };
+
+export const resetChosenUser = () => {
+  return {
+    type: RESET_CHOSEN_USER
+  }
+}
+
+export const setLocalLanguage = (payload: Language) => {
+  return {
+    type: SET_LOCAL_LANGUAGE,
+    payload
+  }
+}

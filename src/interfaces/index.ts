@@ -51,3 +51,8 @@ export interface UserType {
         sha256: string;
     };
 }
+
+export interface Language {
+    value: string;
+    name: string;
+};

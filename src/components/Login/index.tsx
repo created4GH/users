@@ -12,6 +12,7 @@ const Login = () => {
 
   const login = () => {
     dispatch(setIsAuthorized(true));
+    sessionStorage.setItem('is_Authorized', "true");
   }
 
   useEffect(() => {

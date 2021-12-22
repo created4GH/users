@@ -30,7 +30,7 @@ interface Action {
 
 const initialState: InitialState = {
     users: [],
-    isAuthorized: false,
+    isAuthorized: Boolean(sessionStorage.getItem("is_Authorized")) || false,
     isFetching: false,
     chosenUser: null,
     pageNumbers: { current: 1, previous: 0 },

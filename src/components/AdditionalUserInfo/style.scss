@@ -1,4 +1,15 @@
-.user-item.additional-info {
-    // min-width: 400px;
-    white-space: nowrap;
+.user-card.additional-info {
+  white-space: nowrap;
+  background-color: red;
+  margin-top: 30px;
+  @media (max-width: 790px) {
+    white-space: normal;
+    line-height: 20px;
+    width: 330px;
+    margin-left: 20px;
+  }
+  @media (max-width: 670px) {
+      margin: auto;
+  }
 }
+

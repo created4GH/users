@@ -1,6 +1,6 @@
 import "./style.scss";
 
-const CircleLoader = () => {
+const Loader : React.FC = () => {
     return (
         <div className="lds-default">
             <div></div><div></div><div></div><div></div>
@@ -10,4 +10,4 @@ const CircleLoader = () => {
     )
 }
 
-export default CircleLoader;
+export default Loader;

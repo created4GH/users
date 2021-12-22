@@ -1,8 +1,7 @@
-import { all } from 'redux-saga/effects';
+import { all } from "redux-saga/effects";
 
-import { setUsersWatcher } from "./sagas/setUsers";
+import { fetchUsersWatcher } from "./sagas/setUsers";
 
 export default function* rootSaga() {
-    yield all([setUsersWatcher()
-    ]);
+  yield all([fetchUsersWatcher()]);
 }

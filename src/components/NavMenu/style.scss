@@ -1,11 +1,18 @@
 .nav-menu {
   position: relative;
+  display: flex;
+  justify-content: end;
   .nav-buttons-container {
     position: relative;
     display: flex;
-    left: 75vw;
-    right: 0;
+    left: 0;
     min-width: 25vw;
     margin-bottom: 2px;
+    padding-left: 5px;
   }
+}
+
+.button_active {
+  background-color: #fb8332;
+  text-decoration: underline;
 }

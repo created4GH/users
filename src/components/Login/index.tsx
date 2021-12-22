@@ -1,12 +1,12 @@
-import { useEffect } from "react";
 import { useIntl } from "react-intl";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Button from "../commons/Button/Button";
 import { setIsAuthorized } from "../../redux/actions";
+import { USERS_PATH } from "../../constants/pathes";
 
-const Login = () => {
+const Login : React.FC = () => {
   const dispatch = useDispatch();
   const intl = useIntl();
 
@@ -15,12 +15,8 @@ const Login = () => {
     sessionStorage.setItem('is_Authorized', "true");
   }
 
-  useEffect(() => {
-    dispatch(setIsAuthorized(false));
-  }, [])
-
   return (
-    <Link to="/users">
+    <Link to={USERS_PATH}>
       <div className="login__wrapper">
         <Button
           onClick={login}

@@ -8,13 +8,14 @@ import { USERS_PATH, USER_INFO_PATH } from "../../constants/pathes";
 
 import "./style.scss";
 
-const NavMenu = () => {
+const NavMenu : React.FC = () => {
   const dispatch = useDispatch();
   const intl = useIntl();
   const formatMessage = (id: string) => intl.formatMessage({ id: id });
 
   const logout = () => {
     dispatch(setIsAuthorized(false));
+    sessionStorage.setItem('is_Authorized', "false");
   };
 
   return (

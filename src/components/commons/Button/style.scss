@@ -1,7 +1,8 @@
-.button {
+.button_default {
   margin-right: 5px;
   height: 50px;
-  width: 8vw;
+  min-width: 9vw;
+  padding: 5px;
   align-items: center;
   background-clip: padding-box;
   background-color: #fa6400;
@@ -28,7 +29,4 @@
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
 }
-.active-button {
-  background-color: #fb8332;
-  text-decoration: underline;
-}
+

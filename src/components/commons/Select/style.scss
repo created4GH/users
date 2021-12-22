@@ -1,10 +1,6 @@
-select {
+.default-select {
     height: 40px;
     background-color: #fa6400;
     border: 2px solid #ffff;
-}
-.language-select {
-    position: absolute;
-    right: 0;
-    top: 0;
+    color: #ffff;
 }

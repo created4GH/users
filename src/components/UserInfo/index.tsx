@@ -1,30 +1,38 @@
 import { useDispatch, useSelector } from "react-redux";
-import { resetChosenUser } from "../../redux/actions";
-import { chosenUserSelector } from "../../redux/selectors";
-import AdditionalUserInfo from "../AdditionalUserInfo";
+
 import Button from "../commons/Button/Button";
 import UsersSelect from "../UsersSelect";
+import { resetSelectedUser } from "../../redux/actions";
+import { selectedUserSelector } from "../../redux/selectors";
+import AdditionalUserInfo from "../AdditionalUserInfo";
 
 import "./style.scss";
 
-const UserInfo = () => {
+const UserInfo: React.FC = () => {
     const dispatch = useDispatch();
-    const chosenUser = useSelector(chosenUserSelector);
+    const selectedUser = useSelector(selectedUserSelector);
 
-    const resetSelectedUser = () => {
-        dispatch(resetChosenUser());
-    }
+    const resetUser = () => {
+        dispatch(resetSelectedUser());
+    };
 
-    return (
-        chosenUser
-            ? <>
-                <AdditionalUserInfo chosenUser={chosenUser} />
+    const element = selectedUser ? (
+        <div className="additional-info-container">
+            <AdditionalUserInfo selectedUser={selectedUser} />
+            <div className="select-container">
                 <UsersSelect />
-                <Button innerText="Reset" className="reset-button" onClick={resetSelectedUser} />
-            </>
-            : <UsersSelect />
-    )
-}
+                <Button
+                    innerText="Reset"
+                    className="reset-button"
+                    onClick={resetUser}
+                />
+            </div>
+        </div>
+    ) : (
+        <UsersSelect />
+    );
+
+    return element;
+};
 
 export default UserInfo;
-

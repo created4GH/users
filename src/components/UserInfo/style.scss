@@ -1,3 +1,40 @@
-.reset-button {
-    // transform: translate(-290px, 20px);
+.additional-info-container {
+  display: flex;
+}
+@media (max-width: 670px) {
+  .additional-info-container {
+    flex-direction: column;
+  }
+}
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+  .users-select {
+    margin-top: 10px;
+    height: 50px;
+    position: relative;
+    border-radius: 5%;
+  }
+  button {
+    min-width: 9vw;
+    margin-top: 10px;
+  }
+}
+
+.select-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }

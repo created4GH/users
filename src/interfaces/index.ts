@@ -9,7 +9,7 @@ export interface UserType {
         value: string;
     };
     nat: string;
-    className: string;
+    className?: string;
     dob: {
         date: string;
         age: number;

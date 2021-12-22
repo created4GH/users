@@ -4,7 +4,7 @@ interface Props {
 
 const TextSection: React.FC<Props> = ({ text }) => {
     return (
-        <div className="user-item">{text}</div>
+        <p className="user-item">{text}</p>
     )
 }
 

@@ -6,26 +6,25 @@ import UserCard from "../UserCard";
 import "./style.scss";
 
 interface Props {
-    chosenUser: UserType | null;
+  selectedUser: UserType | null;
 }
 
-const AdditionalUserInfo = ({ chosenUser }: Props) => {
-    const intl = useIntl();
-    const formatMessage = (id: string) => intl.formatMessage({ id: id });
+const AdditionalUserInfo: React.FC<Props> = ({ selectedUser }) => {
+  const intl = useIntl();
+  const formatMessage = (id: string) => intl.formatMessage({ id: id });
 
-    const { email, phone, location, registered } = chosenUser!;
-    const optionalTexts = [
-        `${formatMessage("Email")}: ${email}`,
-        `${formatMessage("Phone")}: ${phone}`,
-        `${formatMessage("Address")}: ${location.street.name}, ${location.street.number}`,
-        `${formatMessage("City")}: ${location.city}, ${location.country}`,
-        `${formatMessage("With us")}: ${registered.age} ${formatMessage("years")}
-        (${formatMessage("registered on")} ${registered.date})`,
-    ]
+  const { email, phone, location, registered } = selectedUser!;
+  const optionalTexts = [
+    `${formatMessage("Email")}: ${email}`,
+    `${formatMessage("Phone")}: ${phone}`,
+    `${formatMessage("Address")}: ${location.street.name}, ${
+      location.street.number
+    }`,
+    `${formatMessage("City")}: ${location.city}, ${location.country}`,
+    `${formatMessage("Registration date")} ${registered.date}`,
+  ];
 
-    return (
-        <UserCard user={chosenUser} optionalTexts={optionalTexts} />
-    )
-}
+  return <UserCard user={selectedUser} optionalTexts={optionalTexts} />;
+};
 
 export default AdditionalUserInfo;

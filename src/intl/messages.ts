@@ -19,9 +19,8 @@ export const messages: Props = {
         "Address": "Address",
         "City": "City",
         "With us": "With us",
-        "registered on": "registered on",
-        "years": "years",
-        "Select user title": "Please select a user to see his full information",
+        "Registration date": "Registration date",
+        "Please select user": "Please select a user to see his full information",
         "Select user": "Select User"
     },
     [LOCALES.RUSSIAN]: {
@@ -38,9 +37,8 @@ export const messages: Props = {
         "Address": "Адрес",
         "City": "Город",
         "With us": "С нами",
-        "registered on": "зарегистрирован в",
-        "years": "лет",
-        "Select user title": "Пожалуйста, выберите пользователя",
+        "Registration date": "Дата регистрации",
+        "Please select user": "Пожалуйста, выберите пользователя",
         "Select user": "Выбери пользователя"
     },
     [LOCALES.UKRAINIAN]: {
@@ -57,9 +55,8 @@ export const messages: Props = {
         "Address": "Адреса",
         "City": "Місто",
         "With us": "З нами",
-        "registered on": "зареєстрований в",
-        "years": "років",
-        "Select user title": "Будь ласка, оберіть користувача",
+        "Registration date": "Дата реєстрації",
+        "Please select user": "Будь ласка, оберіть користувача",
         "Select user": "Оберіть користувача"
     }
 

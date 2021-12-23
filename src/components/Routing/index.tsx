@@ -5,11 +5,11 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Users from "../Users";
 import UserInfo from "../UserInfo";
 import Login from "../Login";
-import { IsAuthorizedSelector } from "../../redux/selectors";
+import { isAuthorizedSelector } from "../../redux/selectors";
 import { USERS_PATH, USER_INFO_PATH, LOGIN_PATH } from "../../constants/pathes";
 
 const Routing: React.FC = () => {
-  const isAuthorized = useSelector(IsAuthorizedSelector);
+  const isAuthorized = useSelector(isAuthorizedSelector);
   const toLogin = <Navigate to={LOGIN_PATH} />;
 
   const routes = () => [

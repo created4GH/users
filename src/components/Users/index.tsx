@@ -33,8 +33,8 @@ const Users: React.FC = () => {
 
   const callback = (item: UserType) => <User key={uuidv4()} user={item} />;
   const mappedItems = useMemo(() => users?.map(callback), [users]);
-
-  const element = isFetching && isFirstFetch ? (
+  // console.log("isFirstFetch", isFirstFetch)
+  const element = (isFetching && isFirstFetch) ? (
     <Loader />
   ) : (
     <>

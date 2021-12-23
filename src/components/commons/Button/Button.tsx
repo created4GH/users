@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({ className, onClick, innerText }) => {
-  const currentClass = "button_default" + className ? className : "";
+  const currentClass = "button_default " + (className ? className : "");
 
   return (
     <button className={currentClass} onClick={onClick}>

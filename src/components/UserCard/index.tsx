@@ -16,7 +16,7 @@ const UserCard: React.FC<Props> = ({ user, onClick, optionalTexts }) => {
   const formatMessage = (id: string) => intl.formatMessage({ id: id });
 
   const { picture, name, gender, dob, className } = user!;
-  const currentClassName = className! + optionalTexts ? " additional-info" : "";
+  const currentClassName = className! + (optionalTexts ? " additional-info" : "");
   const texts = [
     `${name.first} ${name.last}`,
     `${formatMessage(gender)}, ${dob.age} ${formatMessage("years old")}`,

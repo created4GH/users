@@ -9,20 +9,21 @@ import {
 
 import { Language, UserType } from "../../interfaces";
 
-export const setIsAuthorized = (payload: boolean) => {
+export const setIsAuthorized = (isAuthorized: boolean) => {
   return {
     type: IS_AUTHORIZED,
-    payload,
+    isAuthorized,
   };
 };
 
-export const fetchUsers = () => {
+export const fetchUsers = (query: number) => {
   return {
     type: FETCH_USERS,
+    query
   };
 };
 
-export const setselectedUser = (selectedUser: UserType) => {
+export const setSelectedUser = (selectedUser: UserType) => {
   return {
     type: SET_CHOSEN_USER,
     selectedUser,
@@ -35,16 +36,16 @@ export const resetSelectedUser = () => {
   };
 };
 
-export const setLocalLanguage = (payload: Language) => {
+export const setLocalLanguage = (localLanguage: Language) => {
   return {
     type: SET_LOCAL_LANGUAGE,
-    payload,
+    localLanguage,
   };
 };
 
-export const setIsFirstFetch = (payload: boolean) => {
+export const setIsFirstFetch = (isFirstFetch: boolean) => {
   return {
     type: SET_IS_FIRST_FETCH,
-    payload,
+    isFirstFetch,
   };
 };

@@ -1,0 +1,13 @@
+.error-container {
+    position: relative;
+    transform: translateY(-50px);
+    text-align: center;
+    font-size: large;
+    .error-icon {
+        width: 200px;
+        height: 200px;
+    }
+    .error-text {
+        margin-top: 20px;
+    }
+}

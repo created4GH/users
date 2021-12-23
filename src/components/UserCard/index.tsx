@@ -1,9 +1,13 @@
 import { useMemo } from "react";
-import { useIntl } from "react-intl";
+import { IntlShape, useIntl } from "react-intl";
+import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
 import { UserType } from "../../interfaces";
+import { localLanguageSelector } from "../../redux/selectors";
 import TextSection from "./TextSection";
+
+import "./style.scss";
 
 interface Props {
   user: UserType | null;
@@ -12,22 +16,23 @@ interface Props {
 }
 
 const UserCard: React.FC<Props> = ({ user, onClick, optionalTexts }) => {
-  const intl = useIntl();
-  const formatMessage = (id: string) => intl.formatMessage({ id: id });
+  const intl: IntlShape = useIntl();
+  const localLanguage = useSelector(localLanguageSelector);
+  const formatMessage = (id: string): string => intl.formatMessage({ id: id });
 
   const { picture, name, gender, dob, className } = user!;
-  const currentClassName = className! + (optionalTexts ? " additional-info" : "");
-  const texts = [
+  const currentClassName: string = className! + (optionalTexts ? " additional-info" : "");
+  const texts: string[] = [
     `${name.first} ${name.last}`,
     `${formatMessage(gender)}, ${dob.age} ${formatMessage("years old")}`,
     `${formatMessage("Date of birth")}: ${dob.date}`,
   ];
 
-  const callback = (item: string) => <TextSection key={uuidv4()} text={item} />;
-  const mappedDefaultItems = useMemo(() => texts.map(callback), [user]);
-  const mappedOptionalItems = useMemo(
+  const callback = (item: string): JSX.Element => <TextSection key={uuidv4()} text={item} />;
+  const mappedDefaultItems: JSX.Element[] = useMemo(() => texts.map(callback), [localLanguage]);
+  const mappedOptionalItems: JSX.Element[] | undefined = useMemo(
     () => optionalTexts?.map(callback),
-    [user, optionalTexts]
+    [optionalTexts, localLanguage]
   );
 
   return (

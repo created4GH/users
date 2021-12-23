@@ -5,14 +5,15 @@ import UsersSelect from "../UsersSelect";
 import { resetSelectedUser } from "../../redux/actions";
 import { selectedUserSelector } from "../../redux/selectors";
 import AdditionalUserInfo from "../AdditionalUserInfo";
+import { DispatchType, UserType } from "../../interfaces";
 
 import "./style.scss";
 
 const UserInfo: React.FC = () => {
-    const dispatch = useDispatch();
-    const selectedUser = useSelector(selectedUserSelector);
+    const dispatch = useDispatch<DispatchType>();
+    const selectedUser: UserType | null = useSelector(selectedUserSelector);
 
-    const resetUser = () => {
+    const resetUser = (): void => {
         dispatch(resetSelectedUser());
     };
 

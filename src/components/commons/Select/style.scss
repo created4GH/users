@@ -1,6 +1,13 @@
 .default-select {
     height: 40px;
-    background-color: #fa6400;
-    border: 2px solid #ffff;
+    margin: 5px 5px 0 0;
+    background-color: #ffff;
+    border-radius: 50px;
+    border: 2px solid black;
+    color: black;
+}
+
+.default-select:hover {
     color: #ffff;
+    background-color: black;
 }

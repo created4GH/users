@@ -8,11 +8,16 @@ import Login from "../Login";
 import { isAuthorizedSelector } from "../../redux/selectors";
 import { USERS_PATH, USER_INFO_PATH, LOGIN_PATH } from "../../constants/pathes";
 
-const Routing: React.FC = () => {
-  const isAuthorized = useSelector(isAuthorizedSelector);
-  const toLogin = <Navigate to={LOGIN_PATH} />;
+interface Routing {
+  path: string;
+  element: JSX.Element;
+}
 
-  const routes = () => [
+const Routing: React.FC = () => {
+  const isAuthorized: boolean = useSelector(isAuthorizedSelector);
+  const toLogin: JSX.Element = <Navigate to={LOGIN_PATH} />;
+
+  const routes = (): Routing[] => [
     {
       path: LOGIN_PATH,
       element: <Login />,

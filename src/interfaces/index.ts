@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export interface UserType {
     name: { title: string, first: string, last: string };
     email: string;
@@ -56,3 +58,5 @@ export interface Language {
     value: string;
     name: string;
 };
+
+export type DispatchType = Dispatch<{ [key: string]: UserType | string | number | boolean | Language }>

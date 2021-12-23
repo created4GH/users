@@ -1,19 +1,20 @@
 import { useDispatch } from "react-redux";
-import { useIntl } from "react-intl";
+import { IntlShape, useIntl } from "react-intl";
 
 import Button from "../commons/Button/Button";
 import ButtonLink from "./ButtonLink";
 import { setIsAuthorized } from "../../redux/actions";
 import { USERS_PATH, USER_INFO_PATH } from "../../constants/pathes";
+import { DispatchType } from "../../interfaces";
 
 import "./style.scss";
 
-const NavMenu : React.FC = () => {
-  const dispatch = useDispatch();
-  const intl = useIntl();
-  const formatMessage = (id: string) => intl.formatMessage({ id: id });
+const NavMenu: React.FC = () => {
+  const dispatch = useDispatch<DispatchType>();
+  const intl: IntlShape = useIntl();
+  const formatMessage = (id: string): string => intl.formatMessage({ id: id });
 
-  const logout = () => {
+  const logout = (): void => {
     dispatch(setIsAuthorized(false));
     sessionStorage.setItem('is_Authorized', "false");
   };

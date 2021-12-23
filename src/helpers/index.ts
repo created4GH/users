@@ -31,8 +31,8 @@ export const formatData = (data: UserType[]): UserType[] => {
   });
 };
 
-export const fetchData = async (): Promise<UserType[]> => {
-  const response = axios.get(URL);
+export const fetchData = async (url: string): Promise<UserType[]> => {
+  const response = axios.get(url);
   const data = (await response).data;
   const results = data.results;
   return results;
@@ -44,3 +44,7 @@ export const findUserByName = (users: UserType[], valueName: string): UserType |
     return itemName === valueName;
   });
 };
+
+export const createURLQuery = (url: string, query: number): string => {
+  return url + query;
+}

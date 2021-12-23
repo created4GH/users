@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Select: React.FC<Props> = ({ className, onChange, children, defaultValue }) => {
-    const currentClass = "default-select " + (className ? className : "");
+    const currentClass: string = "default-select " + (className ? className : "");
 
     return (
         <select

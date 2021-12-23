@@ -1,16 +1,17 @@
-import { useIntl } from "react-intl";
+import { IntlShape, useIntl } from "react-intl";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Button from "../commons/Button/Button";
 import { setIsAuthorized } from "../../redux/actions";
 import { USERS_PATH } from "../../constants/pathes";
+import { DispatchType } from "../../interfaces";
 
-const Login : React.FC = () => {
-  const dispatch = useDispatch();
-  const intl = useIntl();
+const Login: React.FC = () => {
+  const dispatch = useDispatch<DispatchType>();
+  const intl: IntlShape = useIntl();
 
-  const login = () => {
+  const login = (): void => {
     dispatch(setIsAuthorized(true));
     sessionStorage.setItem('is_Authorized', "true");
   }

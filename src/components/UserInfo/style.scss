@@ -26,7 +26,8 @@
 }
 
 .select-wrapper {
-  color: white;
+  position: relative;
+  transform: translateY(-50px);
   display: flex;
   flex-direction: column;
   justify-content: center;

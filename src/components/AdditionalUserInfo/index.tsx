@@ -1,4 +1,4 @@
-import { useIntl } from "react-intl";
+import { IntlShape, useIntl } from "react-intl";
 
 import { UserType } from "../../interfaces";
 import UserCard from "../UserCard";
@@ -10,15 +10,14 @@ interface Props {
 }
 
 const AdditionalUserInfo: React.FC<Props> = ({ selectedUser }) => {
-  const intl = useIntl();
-  const formatMessage = (id: string) => intl.formatMessage({ id: id });
+  const intl: IntlShape = useIntl();
+  const formatMessage = (id: string): string => intl.formatMessage({ id: id });
 
   const { email, phone, location, registered } = selectedUser!;
-  const optionalTexts = [
+  const optionalTexts: string[] = [
     `${formatMessage("Email")}: ${email}`,
     `${formatMessage("Phone")}: ${phone}`,
-    `${formatMessage("Address")}: ${location.street.name}, ${
-      location.street.number
+    `${formatMessage("Address")}: ${location.street.name}, ${location.street.number
     }`,
     `${formatMessage("City")}: ${location.city}, ${location.country}`,
     `${formatMessage("Registration date")} ${registered.date}`,

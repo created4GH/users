@@ -12,6 +12,7 @@ import "./app.style.scss";
 const App: React.FC = () => {
   const isAuthorized = useSelector(isAuthorizedSelector);
   const localLanguage = useSelector(localLanguageSelector);
+  console.log(localLanguage)
   const language: Language = localLanguage;
 
   return (

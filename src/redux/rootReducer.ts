@@ -21,10 +21,9 @@ interface InitialState {
   };
 }
 
-interface Action {
+interface Action extends InitialState {
   type: string;
-  payload: string | boolean | UserType[] | Language;
-  selectedUser: UserType;
+  payload: string | number | boolean | UserType[] | Language;
 }
 
 const initialState: InitialState = {
@@ -42,23 +41,23 @@ const initialState: InitialState = {
 
 const rootReducer = (
   state: InitialState = initialState,
-  { type, payload, selectedUser }: Action
+  { type, users, isAuthorized, selectedUser, isFirstFetch, localLanguage, isFetching }: Action
 ): InitialState => {
   switch (type) {
     case IS_AUTHORIZED:
-      return { ...state, isAuthorized: payload as boolean };
+      return { ...state, isAuthorized };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...(payload as UserType[])] };
+      return { ...state, users: [...state.users, ...users], isFetching: false };
     case IS_FETCHING:
-      return { ...state, isFetching: payload as boolean };
+      return { ...state, isFetching };
     case SET_IS_FIRST_FETCH:
-      return { ...state, isFirstFetch: payload as boolean };
+      return { ...state, isFirstFetch };
     case SET_CHOSEN_USER:
       return { ...state, selectedUser };
     case RESET_CHOSEN_USER:
       return { ...state, selectedUser: null };
     case SET_LOCAL_LANGUAGE:
-      return { ...state, localLanguage: payload as Language };
+      return { ...state, localLanguage };
     default:
       return state;
   }

@@ -1,9 +1,7 @@
 .additional-info-container {
   display: flex;
-}
-@media (max-width: 670px) {
-  .additional-info-container {
-    flex-direction: column;
+  @media (max-width: 670px) {
+      flex-direction: column;
   }
 }
 
@@ -32,10 +30,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 671px) {
+    transform: translateY(0px);
+}
   p {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 20px;
     text-align: center;
+    padding: 5px;
   }
 }

@@ -11,16 +11,15 @@ interface Props {
 
 const AdditionalUserInfo: React.FC<Props> = ({ selectedUser }) => {
   const intl: IntlShape = useIntl();
-  const formatMessage = (id: string): string => intl.formatMessage({ id: id });
+  const format = (id: string): string => intl.formatMessage({ id: id });
 
   const { email, phone, location, registered } = selectedUser!;
   const optionalTexts: string[] = [
-    `${formatMessage("Email")}: ${email}`,
-    `${formatMessage("Phone")}: ${phone}`,
-    `${formatMessage("Address")}: ${location.street.name}, ${location.street.number
-    }`,
-    `${formatMessage("City")}: ${location.city}, ${location.country}`,
-    `${formatMessage("Registration date")} ${registered.date}`,
+    format("Email") + ': ' + email,
+    format("Phone") + ': ' + phone,
+    format("Address") + ': ' + location.street.name + ", " + location.street.number,
+    format("City") + ": " + location.city + ", " + location.country,
+    format("Registration date") + " " + registered.date,
   ];
 
   return <UserCard user={selectedUser} optionalTexts={optionalTexts} />;

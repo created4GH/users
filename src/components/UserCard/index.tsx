@@ -18,14 +18,14 @@ interface Props {
 const UserCard: React.FC<Props> = ({ user, onClick, optionalTexts }) => {
   const intl: IntlShape = useIntl();
   const localLanguage = useSelector(localLanguageSelector);
-  const formatMessage = (id: string): string => intl.formatMessage({ id: id });
+  const format = (id: string): string => intl.formatMessage({ id: id });
 
   const { picture, name, gender, dob, className } = user!;
   const currentClassName: string = className! + (optionalTexts ? " additional-info" : "");
   const texts: string[] = [
-    `${name.first} ${name.last}`,
-    `${formatMessage(gender)}, ${dob.age} ${formatMessage("years old")}`,
-    `${formatMessage("Date of birth")}: ${dob.date}`,
+    name.first + " " + name.last,
+    format(gender) + ", " + dob.age + " " + format("years old"),
+    format("Date of birth") + ": " + dob.date,
   ];
 
   const callback = (item: string): JSX.Element => <TextSection key={uuidv4()} text={item} />;

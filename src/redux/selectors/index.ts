@@ -7,3 +7,4 @@ export const isFetchingSelector = (state: RootState) => state.isFetching;
 export const selectedUserSelector = (state: RootState) => state.selectedUser;
 export const isFirstFetchSelector = (state: RootState) => state.isFirstFetch;
 export const localLanguageSelector = (state: RootState) => state.localLanguage;
+export const setFetchingFailSelector = (state: RootState) => state.localLanguage;

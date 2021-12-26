@@ -11,7 +11,7 @@ import { setSelectedUser } from "../../redux/actions";
 import { findUserByName, formatMessage } from "../../helpers";
 import { USER_INFO_PATH } from "../../constants/pathes";
 
-const UsersSelect: React.FC = () => {
+const UserSelect: React.FC = () => {
   const users: UserType[] = useSelector(usersSelector);
   const dispatch = useDispatch<DispatchType>();
   const navigate: NavigateFunction = useNavigate();
@@ -45,4 +45,4 @@ const UsersSelect: React.FC = () => {
   return element;
 };
 
-export default UsersSelect;
+export default UserSelect;

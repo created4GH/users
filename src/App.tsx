@@ -11,18 +11,16 @@ import "./app.style.scss";
 
 const App: React.FC = () => {
   const isAuthorized = useSelector(isAuthorizedSelector);
-  const localLanguage = useSelector(localLanguageSelector);
-  console.log(localLanguage)
-  const language: Language = localLanguage;
+  const localLanguage : Language = useSelector(localLanguageSelector);
 
   return (
-    <IntlProvider messages={messages[language.value]} locale={language.value}>
+    <IntlProvider messages={messages[localLanguage.value]} locale={localLanguage.value}>
       <div className="App">
         {isAuthorized && <Header />}
         <Pages />
       </div>
     </IntlProvider>
   );
-}
+};
 
 export default App;

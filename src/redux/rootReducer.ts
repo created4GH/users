@@ -1,4 +1,5 @@
-import { Language, UserType } from "../interfaces";
+
+import { Action, InitialState } from "../interfaces";
 import {
   IS_AUTHORIZED,
   IS_FETCHING,
@@ -9,49 +10,34 @@ import {
   SET_LOCAL_LANGUAGE,
 } from "./types";
 
-interface InitialState {
-  users: UserType[];
-  isAuthorized: boolean;
-  isFetching: boolean;
-  selectedUser: UserType | null;
-  isFirstFetch: boolean;
-  localLanguage: {
-    value: string;
-    name: string;
-  };
-}
-
-interface Action extends InitialState {
-  type: string;
-  payload: string | number | boolean | UserType[] | Language;
-}
 
 const initialState: InitialState = {
   users: [],
-  isAuthorized:
-    sessionStorage.getItem("is_Authorized") === "false" ? false : true,
+  isAuthorized: false,
   isFetching: false,
   selectedUser: null,
   isFirstFetch: true,
-  localLanguage: JSON.parse(localStorage.getItem("intl-language")!) || {
+  setIsSecondFetch: false,
+  localLanguage:  {
     value: "en-US",
     name: "ENGLISH",
   },
+  isFetchingFail: false,
 };
 
 const rootReducer = (
   state: InitialState = initialState,
-  { type, users, isAuthorized, selectedUser, isFirstFetch, localLanguage, isFetching }: Action
+  { type, users, isAuthorized, selectedUser, isFirstFetch, localLanguage, isFetching, isFetchingFail }: Action
 ): InitialState => {
   switch (type) {
     case IS_AUTHORIZED:
       return { ...state, isAuthorized };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...users], isFetching: false };
+      return { ...state, users: [...state.users, ...users] };
     case IS_FETCHING:
       return { ...state, isFetching };
     case SET_IS_FIRST_FETCH:
-      return { ...state, isFirstFetch };
+      return { ...state, isFirstFetch, setIsSecondFetch: true };
     case SET_CHOSEN_USER:
       return { ...state, selectedUser };
     case RESET_CHOSEN_USER:

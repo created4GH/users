@@ -2,13 +2,14 @@
   position: relative;
   display: flex;
   justify-content: end;
+  transform: translateY(3px);
+  padding-left: 5px;
   .nav-buttons-container {
     position: relative;
     display: flex;
     left: 0;
     min-width: 25vw;
     margin-bottom: 2px;
-    padding-left: 5px;
   }
   button {
     margin-right: 5px;
@@ -16,6 +17,7 @@
 }
 
 .button_active {
-  color: #ffff;
+  color: white;
   background-color: black;
+  box-shadow: 0px 0px 5px 1px white;
 }

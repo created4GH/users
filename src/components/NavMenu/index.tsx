@@ -16,7 +16,6 @@ const NavMenu: React.FC = () => {
 
   const logout = (): void => {
     dispatch(setIsAuthorized(false));
-    sessionStorage.setItem('is_Authorized', "false");
   };
 
   return (

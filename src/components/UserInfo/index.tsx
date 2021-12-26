@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../commons/Button/Button";
-import UsersSelect from "../UsersSelect";
+import UsersSelect from "../UserSelect";
 import { resetSelectedUser } from "../../redux/actions";
 import { selectedUserSelector } from "../../redux/selectors";
 import AdditionalUserInfo from "../AdditionalUserInfo";

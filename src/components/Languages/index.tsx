@@ -31,8 +31,6 @@ const Languages: React.FC = () => {
       value: LOCALES[target],
       name: target,
     };
-    const setItem: string = JSON.stringify(local);
-    localStorage.setItem("intl-language", setItem);
     dispatch(setLocalLanguage(local));
   };
 

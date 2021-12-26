@@ -13,7 +13,6 @@ const Login: React.FC = () => {
 
   const login = (): void => {
     dispatch(setIsAuthorized(true));
-    sessionStorage.setItem('is_Authorized', "true");
   }
 
   return (

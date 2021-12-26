@@ -60,3 +60,25 @@ export interface Language {
 };
 
 export type DispatchType = Dispatch<{ [key: string]: UserType | string | number | boolean | Language }>
+export type RootReducer = (state: InitialState | undefined,
+    { type, users, isAuthorized, selectedUser, isFirstFetch, localLanguage, isFetching }:
+        Action) => InitialState;
+
+export interface InitialState {
+    users: UserType[];
+    isAuthorized: boolean;
+    isFetching: boolean;
+    selectedUser: UserType | null;
+    isFirstFetch: boolean;
+    setIsSecondFetch: boolean;
+    localLanguage: {
+        value: string;
+        name: string;
+    };
+    isFetchingFail: boolean;
+}
+
+export interface Action extends InitialState {
+    type: string;
+    payload: string | number | boolean | UserType[] | Language;
+}

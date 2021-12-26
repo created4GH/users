@@ -9,17 +9,19 @@
   justify-content: center;
   box-sizing: border-box;
   height: 50px;
-  border: 2px solid #000000;
+  border: 2px solid goldenrod;
+  color: goldenrod;
   box-sizing: border-box;
   border-radius: 50px;
   font-weight: bold;
   font-size: 15px;
   line-height: 18px;
   text-transform: uppercase;
-  background: #ffff;
+  background: black;
 }
 
 .default-button:hover {
-  color: #ffff;
+  color: white;
   background-color: black;
+  box-shadow: 0px 0px 5px 1px white;
 }

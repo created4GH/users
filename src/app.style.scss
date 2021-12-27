@@ -1,0 +1,19 @@
+@import-normalize;
+@import "./assets/scss/reset.scss";
+
+body {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  overflow-x: hidden;
+  color: goldenrod;
+}
+
+.App {
+  min-height: 100vh;
+  background: #000000;  
+background: -webkit-linear-gradient(to right, #434343, #000000);  
+background: linear-gradient(to right, #434343, #000000); 
+
+}

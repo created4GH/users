@@ -1,0 +1,20 @@
+.header {
+    position: relative;
+    height: 20%;
+    width: 100%;
+    border-bottom: 2px solid goldenrod;
+    .header-container {
+        margin-bottom: 10px;
+    }
+    .header-wrapper {
+        margin: -50px 0 0 20px;
+        height: 150px;
+        width: 200px;
+        .header-logo {
+            position: absolute;
+            height: 200px;
+            width: inherit;
+        }
+    }
+
+}

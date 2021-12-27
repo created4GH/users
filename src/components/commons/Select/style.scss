@@ -1,0 +1,15 @@
+.default-select {
+    height: 40px;
+    margin: 5px 5px 0 0;
+    background-color: black;
+    border-radius: 40px;
+    border: 2px solid goldenrod;
+    color: goldenrod;
+    font-size: 15px;
+    text-align: center;
+}
+
+.default-select:hover {
+    color: #ffff;
+    box-shadow: 0px 0px 5px 1px white;
+}

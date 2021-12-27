@@ -1,0 +1,27 @@
+.default-button {
+  height: 50px;
+  min-width: 9vw;
+  padding: 5px;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 50px;
+  border: 2px solid goldenrod;
+  color: goldenrod;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: uppercase;
+  background: black;
+}
+
+.default-button:hover {
+  color: white;
+  background-color: black;
+  box-shadow: 0px 0px 5px 1px white;
+}

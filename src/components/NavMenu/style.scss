@@ -14,6 +14,18 @@
   button {
     margin-right: 5px;
   }
+  @media (max-width: 753px) {
+    justify-content: center;
+    .nav-buttons-container {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    button {
+      width: 55vw;
+      margin-top: 10px;
+    }
+  }
 }
 
 .button_active {

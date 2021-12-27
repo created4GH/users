@@ -5,9 +5,9 @@ import {
   IS_FETCHING,
   SET_CHOSEN_USER,
   SET_USERS,
-  SET_IS_FIRST_FETCH,
   RESET_CHOSEN_USER,
   SET_LOCAL_LANGUAGE,
+  SET_IS_FETCHING_FAIL,
 } from "./types";
 
 
@@ -16,9 +16,8 @@ const initialState: InitialState = {
   isAuthorized: false,
   isFetching: false,
   selectedUser: null,
-  isFirstFetch: true,
-  setIsSecondFetch: false,
-  localLanguage:  {
+  isUsers: false,
+  localLanguage: {
     value: "en-US",
     name: "ENGLISH",
   },
@@ -27,23 +26,23 @@ const initialState: InitialState = {
 
 const rootReducer = (
   state: InitialState = initialState,
-  { type, users, isAuthorized, selectedUser, isFirstFetch, localLanguage, isFetching, isFetchingFail }: Action
+  { type, users, isAuthorized, selectedUser, isUsers, localLanguage, isFetching, isFetchingFail }: Action
 ): InitialState => {
   switch (type) {
     case IS_AUTHORIZED:
       return { ...state, isAuthorized };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...users] };
+      return { ...state, users: [...state.users, ...users], isUsers };
     case IS_FETCHING:
       return { ...state, isFetching };
-    case SET_IS_FIRST_FETCH:
-      return { ...state, isFirstFetch, setIsSecondFetch: true };
     case SET_CHOSEN_USER:
       return { ...state, selectedUser };
     case RESET_CHOSEN_USER:
       return { ...state, selectedUser: null };
     case SET_LOCAL_LANGUAGE:
       return { ...state, localLanguage };
+    case SET_IS_FETCHING_FAIL:
+      return { ...state, isFetchingFail };
     default:
       return state;
   }

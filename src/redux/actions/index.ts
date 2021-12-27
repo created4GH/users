@@ -4,8 +4,6 @@ import {
   SET_CHOSEN_USER,
   RESET_CHOSEN_USER,
   SET_LOCAL_LANGUAGE,
-  SET_IS_FIRST_FETCH,
-  SET_IS_SECOND_FETCH,
 } from "../types";
 
 import { Language, UserType } from "../../interfaces";

@@ -1,7 +1,8 @@
 .additional-info-container {
   display: flex;
+  min-width: 0;
   @media (max-width: 670px) {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -18,8 +19,8 @@
     border-radius: 5%;
   }
   button {
+    margin-top: -25px;
     min-width: 9vw;
-    margin-top: 10px;
   }
 }
 
@@ -32,7 +33,7 @@
   align-items: center;
   @media (max-width: 671px) {
     transform: translateY(0px);
-}
+  }
   p {
     font-size: 20px;
     font-weight: 500;

@@ -29,10 +29,10 @@ const UserCard: React.FC<Props> = ({ user, onClick, optionalTexts }) => {
   ];
 
   const callback = (item: string): JSX.Element => <TextSection key={uuidv4()} text={item} />;
-  const mappedDefaultItems: JSX.Element[] = useMemo(() => texts.map(callback), [localLanguage]);
+  const mappedDefaultItems: JSX.Element[] = useMemo(() => texts.map(callback), [localLanguage, user]);
   const mappedOptionalItems: JSX.Element[] | undefined = useMemo(
     () => optionalTexts?.map(callback),
-    [optionalTexts, localLanguage]
+    [localLanguage, user]
   );
 
   return (

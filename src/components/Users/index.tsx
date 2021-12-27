@@ -15,7 +15,7 @@ import "./style.scss";
 
 const Users: React.FC = () => {
   const dispatch = useDispatch<DispatchType>();
-  const { users, isFirstFetch, isFetching, isFetchingFail, setIsSecondFetch } = useSelector(stateSelector);
+  const { users, isUsers, isFetching, isFetchingFail } = useSelector(stateSelector);
 
   const fetch = (event: Event): void => {
     const target = event.target as Document;
@@ -28,11 +28,13 @@ const Users: React.FC = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("scroll", fetch);
-    return () => {
-      document.removeEventListener("scroll", fetch);
-    };
-  }, []);
+    if (!isFetchingFail) {
+      document.addEventListener("scroll", fetch);
+      return () => {
+        document.removeEventListener("scroll", fetch);
+      };
+    }
+  }, [isFetchingFail]);
 
   const callback = (item: UserType): JSX.Element => (
     <User key={uuidv4()} user={item} />
@@ -42,21 +44,24 @@ const Users: React.FC = () => {
     [users]
   );
 
-  if (isFetching && isFirstFetch) {
+  if (isFetching && !isUsers) {
     return <RoundLoader />;
   }
   else if (isFetchingFail) {
     return <FetchError />;
   }
-  else return (
-    <>
-      <ScrollToTop className="scroll-to-top" />
-      <main className="main">
-        <div className="users-container">{mappedItems}</div>
-      </main>
-      {setIsSecondFetch && <HorizontalLoader />}
-    </>
-  )
+  else if (isUsers) {
+    return (
+      <>
+        <ScrollToTop className="scroll-to-top" />
+        <main className="main">
+          <div className="users-container">{mappedItems}</div>
+        </main>
+        {isFetching && <HorizontalLoader />}
+      </>
+    )
+  }
+  else return <div></div>
 };
 
 export default Users;

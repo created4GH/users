@@ -74,7 +74,7 @@ export interface InitialState {
         value: string;
         name: string;
     };
-    isFetchingFail: boolean;
+    didFetchingFail: boolean;
 }
 
 export interface Action extends InitialState {

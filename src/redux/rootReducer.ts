@@ -7,7 +7,7 @@ import {
   SET_USERS,
   RESET_CHOSEN_USER,
   SET_LOCAL_LANGUAGE,
-  SET_IS_FETCHING_FAIL,
+  DID_FETCHING_FAIL,
 } from "./types";
 
 
@@ -21,12 +21,12 @@ const initialState: InitialState = {
     value: "en-US",
     name: "ENGLISH",
   },
-  isFetchingFail: false,
+  didFetchingFail: false,
 };
 
 const rootReducer = (
   state: InitialState = initialState,
-  { type, users, isAuthorized, selectedUser, isUsers, localLanguage, isFetching, isFetchingFail }: Action
+  { type, users, isAuthorized, selectedUser, isUsers, localLanguage, isFetching, didFetchingFail }: Action
 ): InitialState => {
   switch (type) {
     case IS_AUTHORIZED:
@@ -41,8 +41,8 @@ const rootReducer = (
       return { ...state, selectedUser: null };
     case SET_LOCAL_LANGUAGE:
       return { ...state, localLanguage };
-    case SET_IS_FETCHING_FAIL:
-      return { ...state, isFetchingFail };
+    case DID_FETCHING_FAIL:
+      return { ...state, didFetchingFail };
     default:
       return state;
   }

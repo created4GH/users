@@ -32,7 +32,7 @@ const rootReducer = (
     case IS_AUTHORIZED:
       return { ...state, isAuthorized };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...users], isUsers };
+      return { ...state, users: [...state.users, ...users], isUsers: true };
     case IS_FETCHING:
       return { ...state, isFetching };
     case SET_CHOSEN_USER:

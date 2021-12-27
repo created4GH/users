@@ -17,9 +17,8 @@ function* fetchUsers({ query }: Params) {
     yield put({ type: IS_FETCHING, isFetching: true });
     const response: UserType[] = yield call(fetchData, url);
     const formattedData = formatData(response);
-    yield put({ type: SET_USERS, users: formattedData, isUsers: true });
+    yield put({ type: SET_USERS, users: formattedData });
   } catch (e) {
-    console.log("works")
     yield put({ type: SET_IS_FETCHING_FAIL, isFetchingFail: true });
   }
   finally {

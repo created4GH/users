@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../commons/Button/Button";
 import UsersSelect from "../UserSelect";
 import { resetSelectedUser } from "../../redux/actions";
-import { isFetchingErrorSelector, selectedUserSelector } from "../../redux/selectors";
+import { isFetchingFailSelector, selectedUserSelector } from "../../redux/selectors";
 import AdditionalUserInfo from "../AdditionalUserInfo";
 import { DispatchType, UserType } from "../../interfaces";
 
@@ -13,7 +13,7 @@ import FetchError from "../FetchError";
 const UserInfo: React.FC = () => {
     const dispatch = useDispatch<DispatchType>();
     const selectedUser: UserType | null = useSelector(selectedUserSelector);
-    const isFetchingError: boolean = useSelector(isFetchingErrorSelector);
+    const isFetchingFail: boolean = useSelector(isFetchingFailSelector);
 
     const resetUser = (): void => {
         dispatch(resetSelectedUser());
@@ -34,7 +34,7 @@ const UserInfo: React.FC = () => {
             </div>
         )
     }
-    else if (isFetchingError) {
+    else if (isFetchingFail) {
         return <FetchError />
     }
     else {

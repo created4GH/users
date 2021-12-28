@@ -15,7 +15,7 @@ import "./style.scss";
 
 const Users: React.FC = () => {
   const dispatch = useDispatch<DispatchType>();
-  const { users, isUsers, isFetching } = useSelector(stateSelector);
+  const { users, areUsers, isFetching } = useSelector(stateSelector);
 
   const fetch = (event: Event): void => {
     const target = event.target as Document;
@@ -42,10 +42,10 @@ const Users: React.FC = () => {
     [users]
   );
 
-  if (isFetching && !isUsers) {
+  if (isFetching && !areUsers) {
     return <RoundLoader />;
   }
-  else if (isUsers) {
+  else if (areUsers) {
     return (
       <>
         <ScrollToTop className="scroll-to-top" />

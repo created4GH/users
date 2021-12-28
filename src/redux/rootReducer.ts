@@ -16,7 +16,7 @@ const initialState: InitialState = {
   isAuthorized: false,
   isFetching: false,
   selectedUser: null,
-  isUsers: false,
+  areUsers: false,
   localLanguage: {
     value: "en-US",
     name: "ENGLISH",
@@ -26,13 +26,13 @@ const initialState: InitialState = {
 
 const rootReducer = (
   state: InitialState = initialState,
-  { type, users, isAuthorized, selectedUser, isUsers, localLanguage, isFetching, didFetchingFail }: Action
+  { type, users, isAuthorized, selectedUser, areUsers, localLanguage, isFetching, didFetchingFail }: Action
 ): InitialState => {
   switch (type) {
     case IS_AUTHORIZED:
       return { ...state, isAuthorized };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...users], isUsers: true };
+      return { ...state, users: [...state.users, ...users], areUsers: true };
     case IS_FETCHING:
       return { ...state, isFetching };
     case SET_CHOSEN_USER:

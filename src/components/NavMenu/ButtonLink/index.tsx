@@ -16,7 +16,6 @@ interface Location {
 
 const ButtonLink: React.FC<Props> = ({ to, text }) => {
     const location: Location = useLocation();
-
     const className: string = to === location.pathname ? "button_active" : "";
 
     return (

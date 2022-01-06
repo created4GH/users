@@ -1,5 +1,5 @@
 
-import { Action, InitialState } from "../interfaces";
+import { Action, InitialState, Language, UserType } from "../interfaces";
 import {
   IS_AUTHORIZED,
   IS_FETCHING,
@@ -24,25 +24,22 @@ const initialState: InitialState = {
   didFetchingFail: false,
 };
 
-const rootReducer = (
-  state: InitialState = initialState,
-  { type, users, isAuthorized, selectedUser, areUsers, localLanguage, isFetching, didFetchingFail }: Action
-): InitialState => {
+const rootReducer = (state: InitialState = initialState, { type, payload }: Action): InitialState => {
   switch (type) {
     case IS_AUTHORIZED:
-      return { ...state, isAuthorized };
+      return { ...state, isAuthorized: payload as boolean };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...users], areUsers: true };
+      return { ...state, users: [...state.users, ...(payload as UserType[])], areUsers: true };
     case IS_FETCHING:
-      return { ...state, isFetching };
+      return { ...state, isFetching: payload as boolean };
     case SET_CHOSEN_USER:
-      return { ...state, selectedUser };
+      return { ...state, selectedUser: payload as UserType };
     case RESET_CHOSEN_USER:
       return { ...state, selectedUser: null };
     case SET_LOCAL_LANGUAGE:
-      return { ...state, localLanguage };
+      return { ...state, localLanguage: payload as Language };
     case DID_FETCHING_FAIL:
-      return { ...state, didFetchingFail };
+      return { ...state, didFetchingFail: payload as boolean };
     default:
       return state;
   }

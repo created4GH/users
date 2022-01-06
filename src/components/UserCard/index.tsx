@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { IntlShape, useIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,27 +13,38 @@ interface Props {
   user: UserType | null;
   onClick?: () => void;
   optionalTexts?: string[];
+  isFullInfo?: boolean;
 }
 
-const UserCard: React.FC<Props> = ({ user, onClick, optionalTexts }) => {
-  const intl: IntlShape = useIntl();
+const UserCard: React.FC<Props> = ({ user, onClick, isFullInfo }) => {
+  const {formatMessage} = useIntl();
   const localLanguage = useSelector(localLanguageSelector);
-  const format = (id: string): string => intl.formatMessage({ id: id });
 
+  let userInfo : string[];
   const { picture, name, gender, dob, className } = user!;
-  const currentClassName: string = className! + (optionalTexts ? " additional-info" : "");
-  const texts: string[] = [
+  const currentClassName: string = className! + (isFullInfo ? " additional-info" : "");
+  const defaultInfo: string[] = [
     name.first + " " + name.last,
-    format(gender) + ", " + dob.age + " " + format("years old"),
-    format("Date of birth") + ": " + dob.date,
+    formatMessage({id: gender}) + ", " + dob.age + " " + formatMessage({id: "years old"}),
+    formatMessage({id: "Date of birth"}) + ": " + dob.date,
   ];
 
+  switch(isFullInfo){
+    case(true):
+    const { email, phone, location, registered } = user!; 
+    userInfo = [...defaultInfo,
+      formatMessage({id: "Email"}) + ': ' + email,
+      formatMessage({id: "Phone"}) + ': ' + phone,
+      formatMessage({id: "Address"}) + ': ' + location.street.name + ", " + location.street.number,
+      formatMessage({id: "City"}) + ": " + location.city + ", " + location.country,
+      formatMessage({id: "Registration date"}) + " " + registered.date,];
+      break;
+      default:
+        userInfo = defaultInfo;
+  }
+
   const callback = (item: string): JSX.Element => <TextSection key={uuidv4()} text={item} />;
-  const mappedDefaultItems: JSX.Element[] = useMemo(() => texts.map(callback), [localLanguage, user]);
-  const mappedOptionalItems: JSX.Element[] | undefined = useMemo(
-    () => optionalTexts?.map(callback),
-    [localLanguage, user]
-  );
+  const mappedItems: JSX.Element[] = useMemo(() => userInfo.map(callback), [localLanguage, user]);
 
   return (
     <div className={currentClassName} onClick={onClick}>
@@ -41,8 +52,7 @@ const UserCard: React.FC<Props> = ({ user, onClick, optionalTexts }) => {
         <img src={picture.large} alt="avatar" />
       </div>
       <div className="text-wrapper">
-        {mappedDefaultItems}
-        {mappedOptionalItems}
+        {mappedItems}
       </div>
     </div>
   );

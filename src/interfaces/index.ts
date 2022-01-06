@@ -79,5 +79,5 @@ export interface InitialState {
 
 export interface Action extends InitialState {
     type: string;
-    payload: string | number | boolean | UserType[] | Language;
+    payload: string | number | boolean | UserType |  UserType[] | Language;
 }

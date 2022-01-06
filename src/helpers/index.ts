@@ -1,15 +1,9 @@
 import axios from "axios";
-import { IntlShape } from "react-intl";
 
-import { URL } from "../constants/url";
 import { UserType } from "../interfaces";
 
 export const convertDate = (date: string): string => {
   return new Date(date).toLocaleDateString();
-};
-
-export const formatMessage = (intl: IntlShape, id: string): string => {
-  return intl.formatMessage({ id: id });
 };
 
 export const formatData = (data: UserType[]): UserType[] => {

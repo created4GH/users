@@ -5,7 +5,7 @@ import UsersSelect from "../UserSelect";
 import { resetSelectedUser } from "../../redux/actions";
 import { selectedUserSelector } from "../../redux/selectors";
 import { DispatchType, UserType } from "../../interfaces";
-import UserCard from "../UserCard";
+import UserFullCard from "../UserFullCard";
 
 import "./style.scss";
 
@@ -20,7 +20,7 @@ const UserInfo: React.FC = () => {
     if (selectedUser) {
         return (
             <div className="additional-info-container">
-                <UserCard user={selectedUser} isFullInfo={true}/>
+                <UserFullCard user={selectedUser} />
                 <div className="select-container">
                     <UsersSelect />
                     <Button
@@ -32,7 +32,7 @@ const UserInfo: React.FC = () => {
             </div>
         )
     }
-    else return <UsersSelect />
+    return <UsersSelect />
 };
 
 export default UserInfo;

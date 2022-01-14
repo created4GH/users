@@ -11,8 +11,7 @@ import "./style.scss";
 
 const NavMenu: React.FC = () => {
   const dispatch = useDispatch<DispatchType>();
-  const intl: IntlShape = useIntl();
-  const formatMessage = (id: string): string => intl.formatMessage({ id: id });
+  const {formatMessage} = useIntl();
 
   const logout = (): void => {
     dispatch(setIsAuthorized(false));
@@ -21,9 +20,9 @@ const NavMenu: React.FC = () => {
   return (
     <nav className="nav-menu">
       <div className="nav-buttons-container">
-        <ButtonLink text={formatMessage("Users")} to={USERS_PATH} />
-        <ButtonLink text={formatMessage("User Info")} to={USER_INFO_PATH} />
-        <Button innerText={formatMessage("Log out")} onClick={logout} />
+        <ButtonLink text={formatMessage({id: "Users"})} to={USERS_PATH} />
+        <ButtonLink text={formatMessage({id: "User Info"})} to={USER_INFO_PATH} />
+        <Button innerText={formatMessage({id: "Log out"})} onClick={logout} />
       </div>
     </nav>
   );

@@ -5,11 +5,10 @@ import ScrollToTop from "react-scroll-to-top";
 
 import RoundLoader from "../loaders/RoundLoader";
 import HorizontalLoader from "../loaders/HorizontalLoader";
-import User from "../User";
+import User from "../UserShortCard";
 import { stateSelector } from "../../redux/selectors";
 import { fetchUsers } from "../../redux/actions";
 import { DispatchType, UserType } from "../../interfaces";
-import FetchError from "../FetchError";
 
 import "./style.scss";
 
@@ -45,8 +44,8 @@ const Users: React.FC = () => {
   if (isFetching && !areUsers) {
     return <RoundLoader />;
   }
-  else if (areUsers) {
-    return (
+  return areUsers
+    ? (
       <>
         <ScrollToTop className="scroll-to-top" />
         <main className="main">
@@ -55,8 +54,7 @@ const Users: React.FC = () => {
         {isFetching && <HorizontalLoader />}
       </>
     )
-  }
-  else return <div></div>
+    : null;
 };
 
 export default Users;

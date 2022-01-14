@@ -8,10 +8,10 @@ import {
 
 import { Language, UserType } from "../../interfaces";
 
-export const setIsAuthorized = (isAuthorized: boolean) => {
+export const setIsAuthorized = (payload: boolean) => {
   return {
     type: IS_AUTHORIZED,
-    isAuthorized,
+    payload,
   };
 };
 
@@ -22,10 +22,10 @@ export const fetchUsers = (query: number) => {
   };
 };
 
-export const setSelectedUser = (selectedUser: UserType) => {
+export const setSelectedUser = (payload: UserType) => {
   return {
     type: SET_CHOSEN_USER,
-    selectedUser,
+    payload,
   };
 };
 
@@ -35,9 +35,9 @@ export const resetSelectedUser = () => {
   };
 };
 
-export const setLocalLanguage = (localLanguage: Language) => {
+export const setLocalLanguage = (payload: Language) => {
   return {
     type: SET_LOCAL_LANGUAGE,
-    localLanguage,
+    payload,
   };
 };
